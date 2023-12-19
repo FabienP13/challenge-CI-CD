@@ -1,0 +1,14 @@
+name: deploiement
+on:
+    - push
+jobs:
+    ci:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: checkout action
+              uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18.13.0
+            - run: npm install
+            - run: npm run lint
